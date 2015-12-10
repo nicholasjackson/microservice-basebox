@@ -5,11 +5,12 @@ MAINTAINER Nic Jackson jackson.nic@gmail.com
 # add wget and tar
 RUN apk add --update wget
 RUN apk add --update tar
+RUN apk add --update unzip
 
 # consul-template
 RUN wget --no-check-certificate https://releases.hashicorp.com/consul-template/0.11.1/consul-template_0.11.1_linux_386.zip; \
-tar -xvzf consul-template_0.11.1_linux_386.zip; \
-mv consul-template /usr/bin/consul-template; \
+unzip consul-template_0.11.1_linux_386.zip; \
+mv ./consul-template /usr/bin/consul-template; \
 rm -rf consul-template_0.11.1_linux_386.zip; \
 rm -rf consul-template
 
